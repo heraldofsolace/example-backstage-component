@@ -1,0 +1,8 @@
+site_name: example-backstage-component
+site_description: This lambda serves the only purpose of being an example of how to use TechDocs, the code in it is merely an example hello world and if you find this months after it's creating it might be time to delete it.
+
+nav:
+  - Introduction: index.md
+
+plugins:
+  - techdocs-core

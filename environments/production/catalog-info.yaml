@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: backstage-example-component
+  description: Lambda created using Backstage, check the official documentation produced by TechDocs
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: CarlosIA12/example-backstage-component
+spec:
+  type: service
+  lifecycle: production
+  owner: user:default/guest

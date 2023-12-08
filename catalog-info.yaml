@@ -5,7 +5,7 @@ metadata:
   description: Lambda created using Backstage, check the official documentation produced by TechDocs
   annotations:
     backstage.io/techdocs-ref: dir:.
-    github.com/project-slug: CarlosIA12/example-backstage-component
+    github.com/project-slug: heraldofsolace/example-backstage-component
 spec:
   type: service
   lifecycle: experimental

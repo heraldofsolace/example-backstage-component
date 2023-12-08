@@ -1,5 +1,6 @@
 def lambda_handler(event, context):  
-  if event['queryStringParameters']['password'] == 'myPassword':
+  password = event['queryStringParameters']['password']
+  if password == 'password':
     print("Hello from Backstage!")
   else:
     print("Not allowed")

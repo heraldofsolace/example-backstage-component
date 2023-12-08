@@ -1,18 +1,17 @@
-import hashlib
-import binascii
+urlpatterns = [
+    # Route to code_execution
+    url(r'^code-ex1$', code_execution_bad, name='code-execution-bad'),
+    url(r'^code-ex2$', code_execution_good, name='code-execution-good')
+]
 
-def process_request(request):
-    password = request.GET["password"]
+def code_execution(request):
+    if request.method == 'POST':
+        first_name = base64.decodestring(request.POST.get('first_name', ''))
+        #BAD -- Allow user to define code to be run.
+        exec("setname('%s')" % first_name)
 
-    # BAD: Inbound authentication made by comparison to string literal
-    if password == "myPa55word":
-        redirect("login")
-
-    hashed_password = load_from_config('hashed_password', CONFIG_FILE)
-    salt = load_from_config('salt', CONFIG_FILE)
-
-    #GOOD: Inbound authentication made by comparing to a hash password from a config file.
-    dk = hashlib.pbkdf2_hmac('sha256', password, salt, 100000)
-    hashed_input = binascii.hexlify(dk)
-    if hashed_input == hashed_password:
-        redirect("login")
+def code_execution(request):
+    if request.method == 'POST':
+        first_name = base64.decodestring(request.POST.get('first_name', ''))
+        #GOOD --Call code directly
+        setname(first_name)
